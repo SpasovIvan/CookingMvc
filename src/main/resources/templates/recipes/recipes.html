@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+    <form th:method="GET" th:action="@{/recipes/search}">
+        <input th:id="text" th:name="text" th:type="search" th:placeholder="ПОИСК"/>
+        <button th:type="submit">Send</button>
+    </form><br>
+    <div th:each="recipe : ${recipes}">
+        <h2 th:text="${recipe.getName()}"/>
+        <a th:text="Подробнее" th:href="@{/recipes/{id} (id=${recipe.getId()})}"/>
+    </div>
+</body>
+</html>
